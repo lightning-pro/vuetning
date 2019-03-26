@@ -27,6 +27,7 @@ import SldsNotification from './components/Notification/Index'
 import SldsPagination from './components/Pagination/Index'
 import SldsPicklist from './components/Picklist/Index'
 import SldsPill from './components/Pill/Index'
+import SldsPrompt from './components/Prompt/Index'
 import SldsExpandableSection from './components/ExpandableSection/Index'
 import SldsSpinner from './components/Spinner/Index'
 import SldsSvg from './shared/Svg'
@@ -56,6 +57,7 @@ Vue.component('slds-notification', SldsNotification);
 Vue.component('slds-pagination', SldsPagination);
 Vue.component('slds-picklist', SldsPicklist);
 Vue.component('slds-pill', SldsPill);
+Vue.component('slds-prompt', SldsPrompt);
 Vue.component('slds-expandable-section', SldsExpandableSection);
 Vue.component('slds-spinner', SldsSpinner);
 Vue.component('slds-svg', SldsSvg);
