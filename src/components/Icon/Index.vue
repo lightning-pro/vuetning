@@ -9,11 +9,13 @@
 
 <script>
     import SldsSvg from '@/shared/Svg/index'
+    import SldsColorable from '@/mixins/colorable'
 
     export default {
         components: {
             SldsSvg,
         },
+        mixins: [SldsColorable],
         props: {
             iconClass: {
                 type: String,
@@ -52,28 +54,14 @@
                 }
             },
         },
-        data() {
-            return {
-                backgroundColor: null,
-            }
-        },
-        mounted() {
-            this.backgroundColor = this.parseBackgroundColor();
-        },
-        methods: {
-            parseBackgroundColor() {
-                const classes = this.$el.classList;
-
-                for (let i = 0; i < classes.length; i++) {
-                    if (classes[i].startsWith('slds-icon-')) return;
-                }
-
+        computed: {
+            backgroundColor() {
+                if (!!this.color) return this.setBackgroundColor();
                 if (this.iconName == null) return;
 
-                const category = this.iconName.split(':')[0];
-                const name = this.iconName.split(':')[1].replace(/_/g, "-");
-                return `slds-icon-${category}-${name}`;
-            },
+                const [category, name] = this.iconName.trim().split(':', 2);
+                return `slds-icon-${category}-${name.replace(/_/g, "-")}`;
+            }
         },
     }
 </script>
